@@ -421,6 +421,7 @@ GameObject:
   - component: {fileID: 748437632}
   - component: {fileID: 748437637}
   - component: {fileID: 748437638}
+  - component: {fileID: 748437639}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -540,6 +541,18 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!75 &748437639
+ConstantForce:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 748437631}
+  m_Enabled: 1
+  m_Force: {x: 0, y: 0, z: 0}
+  m_RelativeForce: {x: 0, y: 0, z: 0}
+  m_Torque: {x: 0, y: 0, z: 0}
+  m_RelativeTorque: {x: 0, y: 0, z: 0}
 --- !u!1 &1034951089
 GameObject:
   m_ObjectHideFlags: 0
