@@ -4,23 +4,42 @@ using UnityEngine;
 
 public class CollisionCheck : MonoBehaviour
 {
+    public GameObject wallManager;
 
-    //public GameObject wall;
     private MeshRenderer materialCubo;
+    private WallsRemaining walls;
     private void Start()
     {
         materialCubo = GetComponent<MeshRenderer>();
+        walls = wallManager.GetComponent<WallsRemaining>();
     }
 
-    void OnTriggerEnter(Collider wall2)
+    void OnTriggerEnter(Collider wall)
     {
-        Debug.Log("Colisiona");
-        materialCubo.material.color = Color.red;
-        
+        switch (wall.gameObject.tag)
+        {
+            case "wall":
+                Debug.Log("Colisiona con pared.");
+                materialCubo.material.color = Color.red;
+                break;
+            case "wallTrigger":
+                walls.substractWall();
+                break;
+            default:
+                break;
+        }
     }
 
-    private void OnTriggerExit(Collider collision)
+    private void OnTriggerExit(Collider wall)
     {
-        materialCubo.material.color = Color.white;
+        switch (wall.gameObject.tag)
+        {
+            case "wall":
+                Debug.Log("Dejo de colisionar con pared.");
+                materialCubo.material.color = Color.white;
+                break;
+            default:
+                break;
+        }
     }
 }
