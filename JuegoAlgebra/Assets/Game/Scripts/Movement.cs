@@ -6,6 +6,8 @@ public class Movement : MonoBehaviour
 {
     private float limL;
     private float limR;
+    private float limLRot;
+    private float limRRot;
     private bool canLerpL;
     private bool canLerpR;
     private float time;
@@ -76,5 +78,24 @@ public class Movement : MonoBehaviour
         //        time = 0;
         //    }
         //}
+    }
+
+    public void Left()
+    {
+        transform.position = transform.position + new Vector3(0, 0, -1);
+    }
+    public void Right()
+    {
+        transform.position = transform.position + new Vector3(0, 0, 1);
+    }
+
+    public void RotateLeft()
+    {
+        transform.Rotate(new Vector3(0, -90, 0));
+    }
+
+    public void RotateRight()
+    {
+        transform.Rotate(new Vector3(0, 90, 0));
     }
 }

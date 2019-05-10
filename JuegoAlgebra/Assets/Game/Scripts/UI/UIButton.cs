@@ -6,12 +6,28 @@ using UnityEngine.UI;
 public class UIButton : MonoBehaviour
 {
     public GameObject player;
+    private Movement mov;
+
+    private void Start()
+    {
+        mov = player.GetComponent<Movement>();
+    }
     public void Left()
     {
-        player.transform.position = player.transform.position + new Vector3(0, 0, -1);
+        mov.Left();
     }
     public void Right()
     {
-        player.transform.position = player.transform.position + new Vector3(0, 0, 1);
+        mov.Right();
+    }
+
+    public void RotateLeft()
+    {
+        mov.RotateLeft();
+    }
+
+    public void RotateRight()
+    {
+        mov.RotateRight();
     }
 }
