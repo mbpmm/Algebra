@@ -28,24 +28,24 @@ public class Movement : MonoBehaviour
     void Update()
     {
 
-        dir = transform.position - target;
+       // dir = transform.position - target;
 
-       transform.position = transform.position - dir * Time.deltaTime*8;
-        //t += Time.deltaTime;
+       //transform.position = transform.position - dir * Time.deltaTime*80;
+       // //t += Time.deltaTime;
 
-        //if (t<=1)
-        //{
-        //    transform.position = Vector3.Lerp(transform.position, transform.position + transform.forward, Time.deltaTime);
-        //}
-        if (Input.GetKeyDown(KeyCode.LeftArrow))
-        {
-            //rig.AddForce(transform.forward*2, ForceMode.Impulse);
-           target = transform.position + transform.forward * -1;
-        }
-        if (Input.GetKeyDown(KeyCode.RightArrow))
-        {
-           target = transform.position + transform.forward;
-        }
+       // //if (t<=1)
+       // //{
+       // //    transform.position = Vector3.Lerp(transform.position, transform.position + transform.forward, Time.deltaTime);
+       // //}
+       // if (Input.GetKeyDown(KeyCode.LeftArrow))
+       // {
+       //     //rig.AddForce(transform.forward*2, ForceMode.Impulse);
+       //    target = transform.position + transform.forward * -1;
+       // }
+       // if (Input.GetKeyDown(KeyCode.RightArrow))
+       // {
+       //    target = transform.position + transform.forward;
+       // }
 
         if (transform.position.z<limL)
         {
@@ -56,25 +56,25 @@ public class Movement : MonoBehaviour
             transform.position = new Vector3(transform.position.x, transform.position.y, limR);
         }
 
-        if (canLerpL)
-        {
-            time += Time.deltaTime;
-            transform.Translate(transform.forward*-1 * Time.smoothDeltaTime, Space.World);
-            if (time>=1)
-            {
-                canLerpL = false;
-                time = 0;
-            }
-        }
-        if (canLerpR)
-        {
-            time += Time.deltaTime;
-            transform.Translate(transform.forward * Time.deltaTime, Space.World);
-            if (time >= 1)
-            {
-                canLerpR = false;
-                time = 0;
-            }
-        }
+        //if (canLerpL)
+        //{
+        //    time += Time.deltaTime;
+        //    transform.Translate(transform.forward*-1 * Time.smoothDeltaTime, Space.World);
+        //    if (time>=1)
+        //    {
+        //        canLerpL = false;
+        //        time = 0;
+        //    }
+        //}
+        //if (canLerpR)
+        //{
+        //    time += Time.deltaTime;
+        //    transform.Translate(transform.forward * Time.deltaTime, Space.World);
+        //    if (time >= 1)
+        //    {
+        //        canLerpR = false;
+        //        time = 0;
+        //    }
+        //}
     }
 }
