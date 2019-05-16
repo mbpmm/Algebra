@@ -6,9 +6,13 @@ public class Steps : MonoBehaviour
 {
     private int steps;
 
+    private void Awake()
+    {
+        steps = 20;
+    }
     public void addStep()
     {
-        steps++;
+        steps--;
     }
 
     public int getSteps()
