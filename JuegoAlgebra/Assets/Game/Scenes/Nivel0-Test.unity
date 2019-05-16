@@ -130,7 +130,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 166b29db417883241976fa2c0edfbdf2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  wallManager: {fileID: 1677234248}
 --- !u!1 &170076733
 GameObject:
   m_ObjectHideFlags: 0
@@ -1036,6 +1035,11 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Untagged
       objectReference: {fileID: 0}
+    - target: {fileID: 8190370769590440464, guid: 836f4a7e79fd8f44d8f34d4ea7a15f73,
+        type: 3}
+      propertyPath: m_TagString
+      value: wallTrigger
+      objectReference: {fileID: 0}
     - target: {fileID: 8727773300967159399, guid: 836f4a7e79fd8f44d8f34d4ea7a15f73,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1139,17 +1143,12 @@ PrefabInstance:
     - target: {fileID: 4026617057674426193, guid: 836f4a7e79fd8f44d8f34d4ea7a15f73,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 10.75
+      value: 25.71
       objectReference: {fileID: 0}
     - target: {fileID: 6975241953510459417, guid: 836f4a7e79fd8f44d8f34d4ea7a15f73,
         type: 3}
       propertyPath: m_RootOrder
       value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8190370769590440464, guid: 836f4a7e79fd8f44d8f34d4ea7a15f73,
-        type: 3}
-      propertyPath: m_TagString
-      value: wallTrigger
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 836f4a7e79fd8f44d8f34d4ea7a15f73, type: 3}
