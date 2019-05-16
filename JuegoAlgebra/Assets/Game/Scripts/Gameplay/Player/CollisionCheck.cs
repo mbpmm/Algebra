@@ -8,9 +8,11 @@ public class CollisionCheck : MonoBehaviour
 
     private MeshRenderer materialCubo;
     private WallsRemaining walls;
+    private Points playerPoints;
     private void Start()
     {
         materialCubo = GetComponent<MeshRenderer>();
+        playerPoints = GetComponentInParent<Points>();
         walls = wallManager.GetComponent<WallsRemaining>();
     }
 
@@ -21,9 +23,14 @@ public class CollisionCheck : MonoBehaviour
             case "wall":
                 Debug.Log("Colisiona con pared.");
                 materialCubo.material.color = Color.red;
+                playerPoints.substractPoints(50);
                 break;
             case "wallTrigger":
                 walls.substractWall();
+                if(materialCubo.material.color != Color.red)
+                {
+                    playerPoints.addPoints(100);
+                }
                 break;
             default:
                 break;
