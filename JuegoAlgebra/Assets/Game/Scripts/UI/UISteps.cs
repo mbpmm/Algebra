@@ -11,7 +11,7 @@ public class UISteps : MonoBehaviour
     private Steps playerSteps;
     private void Start()
     {
-        textSize = 37;
+        textSize = 69;
         playerSteps = player.GetComponent<Steps>();
     }
 

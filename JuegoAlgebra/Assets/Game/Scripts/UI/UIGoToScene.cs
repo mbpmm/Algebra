@@ -6,10 +6,17 @@ using UnityEngine.SceneManagement;
 public class UIGoToScene : MonoBehaviour
 {
     public string sceneName;
+    private GameObject gameManager;
+
+    private void Start()
+    {
+        gameManager = GameObject.Find("GameManager");
+    }
 
     public void GoToScene()
     {
         SceneManager.LoadScene(sceneName);
+        Destroy(gameManager);
     }
 
     public void QuitGame()

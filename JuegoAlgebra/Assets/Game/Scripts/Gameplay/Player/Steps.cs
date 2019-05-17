@@ -13,6 +13,10 @@ public class Steps : MonoBehaviour
     public void addStep()
     {
         steps--;
+        if (steps<=0)
+        {
+            steps = 0;
+        }
     }
 
     public int getSteps()
