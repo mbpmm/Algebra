@@ -10,7 +10,7 @@ public class Steps : MonoBehaviour
     {
         steps = 20;
     }
-    public void addStep()
+    public void substractStep()
     {
         steps--;
         if (steps<=0)

@@ -8,47 +8,34 @@ public class Movement : MonoBehaviour
     private float limR;
     private float limLRot;
     private float limRRot;
-    private bool canLerpL;
-    private bool canLerpR;
     private float time;
-    private float t;
     private Vector3 dir;
     private Vector3 target;
+    public Vector3 pos2;
+    public Quaternion rot2;
     Rigidbody rig;
+    public float t;
+    public float t2;
+    private Steps steps;
     // Start is called before the first frame update
     void Start()
     {
         limL = -3f;
         limR = 3f;
-        canLerpL = false;
-        canLerpR = false;
         target = transform.position;
         rig = GetComponent<Rigidbody>();
+        pos2 = transform.position;
+        rot2 = transform.rotation;
+        steps = GetComponent<Steps>();
     }
 
     // Update is called once per frame
     void Update()
     {
-
-       // dir = transform.position - target;
-
-       //transform.position = transform.position - dir * Time.deltaTime*80;
-       // //t += Time.deltaTime;
-
-       // //if (t<=1)
-       // //{
-       // //    transform.position = Vector3.Lerp(transform.position, transform.position + transform.forward, Time.deltaTime);
-       // //}
-       // if (Input.GetKeyDown(KeyCode.LeftArrow))
-       // {
-       //     //rig.AddForce(transform.forward*2, ForceMode.Impulse);
-       //    target = transform.position + transform.forward * -1;
-       // }
-       // if (Input.GetKeyDown(KeyCode.RightArrow))
-       // {
-       //    target = transform.position + transform.forward;
-       // }
-
+        t += Time.deltaTime*2f;
+        t2 += Time.deltaTime *2f;
+        transform.position = Vector3.Lerp(transform.position, pos2, t);
+        transform.rotation = Quaternion.Lerp(transform.rotation, rot2, t2);
         if (transform.position.z<limL)
         {
             transform.position = new Vector3(transform.position.x, transform.position.y, limL);
@@ -57,45 +44,51 @@ public class Movement : MonoBehaviour
         {
             transform.position = new Vector3(transform.position.x, transform.position.y, limR);
         }
-
-        //if (canLerpL)
-        //{
-        //    time += Time.deltaTime;
-        //    transform.Translate(transform.forward*-1 * Time.smoothDeltaTime, Space.World);
-        //    if (time>=1)
-        //    {
-        //        canLerpL = false;
-        //        time = 0;
-        //    }
-        //}
-        //if (canLerpR)
-        //{
-        //    time += Time.deltaTime;
-        //    transform.Translate(transform.forward * Time.deltaTime, Space.World);
-        //    if (time >= 1)
-        //    {
-        //        canLerpR = false;
-        //        time = 0;
-        //    }
-        //}
     }
 
     public void Left()
     {
-        transform.position = transform.position + new Vector3(0, 0, -1);
+        if (t >= 1f)
+        {
+            steps.substractStep();
+            t = 0;
+            pos2 = transform.position + new Vector3(0, 0, -1);
+        }
+        //transform.position = transform.position + new Vector3(0, 0, -1);
     }
     public void Right()
     {
-        transform.position = transform.position + new Vector3(0, 0, 1);
+        if (t>=1f)
+        {
+            steps.substractStep();
+            t = 0;
+            pos2 = transform.position + new Vector3(0, 0, 1);
+        }
+        
+        //transform.position = transform.position + new Vector3(0, 0, 1);
     }
 
     public void RotateLeft()
     {
-        transform.Rotate(new Vector3(0, -90, 0));
+        if (t2 >= 1f)
+        {
+            steps.substractStep();
+            t2 = 0;
+            rot2 = transform.rotation * Quaternion.Euler(new Vector3(0, -90, 0));
+        }
+        
+        //transform.Rotate(new Vector3(0, -90, 0));
     }
 
     public void RotateRight()
     {
-        transform.Rotate(new Vector3(0, 90, 0));
+        if (t2 >= 1f)
+        {
+            steps.substractStep();
+            t2 = 0;
+            rot2 = transform.rotation * Quaternion.Euler(new Vector3(0, 90, 0));
+        }
+        
+        //transform.Rotate(new Vector3(0, 90, 0));
     }
 }
