@@ -80,6 +80,7 @@ GameObject:
   - component: {fileID: 5216614010212927114}
   - component: {fileID: 5271578289402339980}
   - component: {fileID: 9073033294819140838}
+  - component: {fileID: 3416388831711359627}
   m_Layer: 0
   m_Name: Wall2
   m_TagString: Untagged
@@ -131,6 +132,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   wallSpeed: 0
+--- !u!114 &3416388831711359627
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1985834733170911670}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 77a461188295afc4d8bd8907de46c795, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rot: {x: 0, y: 90, z: 0}
 --- !u!1 &2346254976016820803
 GameObject:
   m_ObjectHideFlags: 0

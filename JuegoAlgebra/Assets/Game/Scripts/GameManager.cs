@@ -72,7 +72,7 @@ public class GameManager : MonoBehaviourSingleton<GameManager>
             Invoke("GoToGameOver", 2f);
         }
 
-        Debug.Log(gameOver);
+        //Debug.Log(gameOver);
     }
 
     public void GoToGameOver()
