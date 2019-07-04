@@ -936,6 +936,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   wallManager: {fileID: 2019274348}
+  transformPlayer: {fileID: 976989702}
 --- !u!54 &748437638
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1424,6 +1425,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 20df53f1c5435504085199ecd7983a71, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  pos2: {x: 0, y: 0, z: 0}
+  rot2: {x: 0, y: 0, z: 0, w: 0}
+  t: 0
+  t2: 0
 --- !u!4 &976989702
 Transform:
   m_ObjectHideFlags: 0
@@ -2592,6 +2597,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 976989700}
   wallMgr: {fileID: 2019274348}
+  maxPoints: 1100
+  stepPoints: 25
   grade: 0
   pointsTotal: 0
 --- !u!4 &2025781619

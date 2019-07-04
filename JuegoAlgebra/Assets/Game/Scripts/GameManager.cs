@@ -7,6 +7,8 @@ public class GameManager : MonoBehaviourSingleton<GameManager>
 {
     public GameObject player;
     public GameObject wallMgr;
+    public int maxPoints;
+    public int stepPoints;
     public char grade;
     public int pointsTotal;
 
@@ -14,15 +16,11 @@ public class GameManager : MonoBehaviourSingleton<GameManager>
     private Points points;
     private Steps steps;
     private bool gameOver;
-    private int maxPoints;
-    private int stepPoints;
     private bool inGameOverScene;
 
     public override void Awake()
     {
         base.Awake();
-        stepPoints = 25;
-        maxPoints = 1100;
         gameOver = false;
         points = player.GetComponent<Points>();
         steps = player.GetComponent<Steps>();
@@ -71,14 +69,10 @@ public class GameManager : MonoBehaviourSingleton<GameManager>
             inGameOverScene = true;
             Invoke("GoToGameOver", 2f);
         }
-
-        //Debug.Log(gameOver);
     }
 
     public void GoToGameOver()
     {
-        //walls.addWall();
-        //steps.addStep();
         inGameOverScene = false;
         gameOver = false;
         SceneManager.LoadScene("DemoGameOver");
