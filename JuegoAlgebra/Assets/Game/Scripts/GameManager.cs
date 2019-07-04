@@ -22,7 +22,7 @@ public class GameManager : MonoBehaviourSingleton<GameManager>
     {
         base.Awake();
         stepPoints = 25;
-        maxPoints = 750;
+        maxPoints = 1100;
         gameOver = false;
         points = player.GetComponent<Points>();
         steps = player.GetComponent<Steps>();

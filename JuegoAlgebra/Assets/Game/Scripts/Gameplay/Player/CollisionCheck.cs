@@ -5,19 +5,16 @@ using UnityEngine;
 public class CollisionCheck : MonoBehaviour
 {
     public GameObject wallManager;
+    public Transform transformPlayer;
 
-    //public GameObject wallParent;
-    private Transform transformPlayer;
     private MeshRenderer materialCubo;
     private WallsRemaining walls;
     private Points playerPoints;
     private void Start()
     {
-        transformPlayer = GetComponent<Transform>();
         materialCubo = GetComponent<MeshRenderer>();
         playerPoints = GetComponentInParent<Points>();
         walls = wallManager.GetComponent<WallsRemaining>();
-        //wallParent = GetComponentInParent<GameObject>();
     }
 
     void OnTriggerEnter(Collider wall)
@@ -34,17 +31,25 @@ public class CollisionCheck : MonoBehaviour
 
                 if(materialCubo.material.color != Color.red)
                 {
-                    
+                    playerPoints.addPoints(100);
+
                     Vector3 auxRot = wall.gameObject.GetComponentInParent<PerfectMatch>().rot;
                     Vector3 playerRot = transformPlayer.localRotation.eulerAngles;
-                    Debug.Log(auxRot);
+                    Vector3 perfectRotOpposite;
 
-                    //PerfectMatch wallMatch = wall.gameObject.GetComponent<PerfectMatch>();
-                    //
-                    playerPoints.addPoints(100);
-                    Debug.Log(auxRot * -1);
-                    Debug.Log(transformPlayer.localRotation.eulerAngles);
-                    if (playerRot == auxRot || playerRot == auxRot * -1)
+                    auxRot.x = (playerRot.x + 360) % 360;
+                    auxRot.y = (playerRot.y + 360) % 360;
+                    auxRot.z = (playerRot.z + 360) % 360;
+
+                    perfectRotOpposite.x = 360 - auxRot.x;
+                    perfectRotOpposite.y = 360 - auxRot.y;
+                    perfectRotOpposite.z = 360 - auxRot.z;   
+
+                    Debug.Log("Perfect Rotation: " + auxRot);
+                    Debug.Log("Perfect Rotation Opposite: " + perfectRotOpposite);
+                    Debug.Log("Player Rotation: " + playerRot);
+
+                    if (playerRot == auxRot || playerRot == perfectRotOpposite)
                     {
                         playerPoints.addPoints(100);
                     }
