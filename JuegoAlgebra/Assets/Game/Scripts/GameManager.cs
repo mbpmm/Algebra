@@ -11,12 +11,14 @@ public class GameManager : MonoBehaviourSingleton<GameManager>
     public int stepPoints;
     public char grade;
     public int pointsTotal;
+    public string levelName;
 
     private WallsRemaining walls;
     private Points points;
     private Steps steps;
     private bool gameOver;
     private bool inGameOverScene;
+    private bool switchOnce;
 
     public override void Awake()
     {
@@ -68,6 +70,11 @@ public class GameManager : MonoBehaviourSingleton<GameManager>
             }
             inGameOverScene = true;
             Invoke("GoToGameOver", 2f);
+            if(!switchOnce)
+            {
+                levelName = SceneManager.GetActiveScene().name;
+                switchOnce = true;
+            }
         }
     }
 

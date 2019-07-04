@@ -15,7 +15,15 @@ public class UIGoToScene : MonoBehaviour
 
     public void GoToScene()
     {
-        SceneManager.LoadScene(sceneName);
+        if(SceneManager.GetActiveScene().name == "GameOver" && sceneName == "0")
+        {
+            SceneManager.LoadScene(gameManager.GetComponent<GameManager>().levelName);
+        }
+        else
+        {
+            SceneManager.LoadScene(sceneName);
+        }
+        
         Destroy(gameManager);
     }
 
