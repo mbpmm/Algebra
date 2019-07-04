@@ -75,6 +75,6 @@ public class GameManager : MonoBehaviourSingleton<GameManager>
     {
         inGameOverScene = false;
         gameOver = false;
-        SceneManager.LoadScene("DemoGameOver");
+        SceneManager.LoadScene("GameOver");
     }
 }
