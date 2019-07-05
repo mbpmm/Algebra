@@ -35,21 +35,35 @@ public class CollisionCheck : MonoBehaviour
 
                     Vector3 auxRot = wall.gameObject.GetComponentInParent<PerfectMatch>().rot;
                     Vector3 playerRot = transformPlayer.localRotation.eulerAngles;
-                    Vector3 perfectRotOpposite;
+                    Vector3 perfectRotOpposite = new Vector3(0,0,0);
 
-                    auxRot.x = (playerRot.x + 360) % 360;
-                    auxRot.y = (playerRot.y + 360) % 360;
-                    auxRot.z = (playerRot.z + 360) % 360;
+                    auxRot.x = (auxRot.x + 360) % 360;
+                    auxRot.y = (auxRot.y + 360) % 360;
+                    auxRot.z = (auxRot.z + 360) % 360;
 
-                    perfectRotOpposite.x = 360 - auxRot.x;
-                    perfectRotOpposite.y = 360 - auxRot.y;
-                    perfectRotOpposite.z = 360 - auxRot.z;   
+                    if(wall.gameObject.GetComponentInParent<PerfectMatch>().hasX)
+                    {
+                        CheckOppositeRotation(auxRot.x, out perfectRotOpposite.x);
+                    }
+
+                    if(wall.gameObject.GetComponentInParent<PerfectMatch>().hasY)
+                    {
+                        CheckOppositeRotation(auxRot.y, out perfectRotOpposite.y);
+                    }
+
+                    if(wall.gameObject.GetComponentInParent<PerfectMatch>().hasZ)
+                    {
+                        CheckOppositeRotation(auxRot.z, out perfectRotOpposite.z);
+                    }
+                    
 
                     Debug.Log("Perfect Rotation: " + auxRot);
                     Debug.Log("Perfect Rotation Opposite: " + perfectRotOpposite);
                     Debug.Log("Player Rotation: " + playerRot);
 
-                    if (playerRot == auxRot || playerRot == perfectRotOpposite)
+
+
+                    if (playerRot == auxRot || playerRot == perfectRotOpposite && wall.gameObject.GetComponentInParent<PerfectMatch>().hasOpposite)
                     {
                         playerPoints.addPoints(100);
                     }
@@ -70,6 +84,18 @@ public class CollisionCheck : MonoBehaviour
                 break;
             default:
                 break;
+        }
+    }
+
+    private void CheckOppositeRotation(float rot1, out float rot2)
+    {
+        if (rot1 == 0)
+        {
+            rot2 = 180;
+        }
+        else
+        {
+            rot2 = 360 - rot1;
         }
     }
 }

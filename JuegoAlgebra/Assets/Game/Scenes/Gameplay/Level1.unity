@@ -2325,6 +2325,16 @@ PrefabInstance:
       propertyPath: wallManager
       value: 
       objectReference: {fileID: 2019274348}
+    - target: {fileID: 8976395995150850895, guid: 836f4a7e79fd8f44d8f34d4ea7a15f73,
+        type: 3}
+      propertyPath: hasOpposite
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8976395995150850895, guid: 836f4a7e79fd8f44d8f34d4ea7a15f73,
+        type: 3}
+      propertyPath: hasY
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 836f4a7e79fd8f44d8f34d4ea7a15f73, type: 3}
 --- !u!1 &1342079499
@@ -3838,6 +3848,16 @@ PrefabInstance:
       propertyPath: wallManager
       value: 
       objectReference: {fileID: 2019274348}
+    - target: {fileID: 8830284092738111557, guid: 12b321f85b2247c4fb0d0c47b56def89,
+        type: 3}
+      propertyPath: hasOpposite
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8830284092738111557, guid: 12b321f85b2247c4fb0d0c47b56def89,
+        type: 3}
+      propertyPath: hasY
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 12b321f85b2247c4fb0d0c47b56def89, type: 3}
 --- !u!1001 &2616058375328308482
@@ -3932,6 +3952,16 @@ PrefabInstance:
       propertyPath: wallManager
       value: 
       objectReference: {fileID: 2019274348}
+    - target: {fileID: 7623621667928378833, guid: 0f74754178be06a48a2a0ac539c3824f,
+        type: 3}
+      propertyPath: hasOpposite
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7623621667928378833, guid: 0f74754178be06a48a2a0ac539c3824f,
+        type: 3}
+      propertyPath: hasY
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0f74754178be06a48a2a0ac539c3824f, type: 3}
 --- !u!1 &4205236849285329876 stripped
@@ -4046,6 +4076,16 @@ PrefabInstance:
       propertyPath: wallManager
       value: 
       objectReference: {fileID: 2019274348}
+    - target: {fileID: 3416388831711359627, guid: d956f383a4ba19c4bb5cbd4f121f21c3,
+        type: 3}
+      propertyPath: hasOpposite
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3416388831711359627, guid: d956f383a4ba19c4bb5cbd4f121f21c3,
+        type: 3}
+      propertyPath: hasY
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d956f383a4ba19c4bb5cbd4f121f21c3, type: 3}
 --- !u!1 &6309820097332141840 stripped
