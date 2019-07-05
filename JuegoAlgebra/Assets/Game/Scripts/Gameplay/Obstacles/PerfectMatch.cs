@@ -5,4 +5,8 @@ using UnityEngine;
 public class PerfectMatch : MonoBehaviour
 {
     public Vector3 rot;
+    public bool hasX;
+    public bool hasY;
+    public bool hasZ;
+    public bool hasOpposite;
 }
