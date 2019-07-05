@@ -30,4 +30,14 @@ public class UIButton : MonoBehaviour
     {
         mov.RotateRight();
     }
+
+    public void RotateLeftX()
+    {
+        mov.RotateLeftX();
+    }
+
+    public void RotateRightX()
+    {
+        mov.RotateRightX();
+    }
 }

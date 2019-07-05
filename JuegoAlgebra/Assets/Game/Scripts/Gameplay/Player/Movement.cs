@@ -91,4 +91,28 @@ public class Movement : MonoBehaviour
         
         //transform.Rotate(new Vector3(0, 90, 0));
     }
+
+    public void RotateLeftX()
+    {
+        if (t2 >= 1f)
+        {
+            steps.substractStep();
+            t2 = 0;
+            rot2 = transform.rotation * Quaternion.Euler(new Vector3(-90, 0, 0));
+        }
+
+        //transform.Rotate(new Vector3(0, -90, 0));
+    }
+
+    public void RotateRightX()
+    {
+        if (t2 >= 1f)
+        {
+            steps.substractStep();
+            t2 = 0;
+            rot2 = transform.rotation * Quaternion.Euler(new Vector3(90, 0, 0));
+        }
+
+        //transform.Rotate(new Vector3(0, 90, 0));
+    }
 }
