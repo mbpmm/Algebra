@@ -853,7 +853,7 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
     m_Font: {fileID: 12800000, guid: 5bb3b162e4378f34cb5c9ef82bf451f1, type: 3}
-    m_FontSize: 35
+    m_FontSize: 27
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 0
@@ -871,6 +871,8 @@ MonoBehaviour:
     http://www.typodermicfonts.com/
 
     http://jlhfonts.blogspot.com/
+
+    https://github.com/Chaser324/unity-wireframe
 
     Unity Ui Extensions'
 --- !u!222 &1078353056
