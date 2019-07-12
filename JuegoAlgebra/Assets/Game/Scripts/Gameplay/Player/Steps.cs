@@ -12,6 +12,7 @@ public class Steps : MonoBehaviour
     }
     public void substractStep()
     {
+        AudioManager.Get().PlaySound("Button");
         steps--;
         if (steps<=0)
         {

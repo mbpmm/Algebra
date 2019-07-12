@@ -28,6 +28,18 @@ public class GameManager : MonoBehaviourSingleton<GameManager>
         steps = player.GetComponent<Steps>();
         walls = wallMgr.GetComponent<WallsRemaining>();
     }
+
+    private void Start()
+    {
+        if (SceneManager.GetActiveScene().name == "Level1")
+        {
+            AudioManager.Get().PlaySound("SongLevel1");
+        }
+        if (SceneManager.GetActiveScene().name == "Level2")
+        {
+            AudioManager.Get().PlaySound("SongLevel2");
+        }
+    }
     // Update is called once per frame
     void Update()
     {
