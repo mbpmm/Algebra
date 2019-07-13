@@ -40,7 +40,7 @@ public class AudioManager : MonoBehaviour
     }
 
     // Use this for initialization
-    private void Start()
+    private void Awake()
     {
         if (instance)
         {

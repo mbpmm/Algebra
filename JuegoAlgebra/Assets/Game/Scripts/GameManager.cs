@@ -92,7 +92,6 @@ public class GameManager : MonoBehaviourSingleton<GameManager>
 
     public void GoToGameOver()
     {
-        inGameOverScene = false;
         gameOver = false;
         SceneManager.LoadScene("GameOver");
     }

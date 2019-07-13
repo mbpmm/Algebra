@@ -1218,6 +1218,8 @@ MonoBehaviour:
     clip: {fileID: 8300000, guid: cf608e4770f6004458be3ea19f89905e, type: 3}
   - soundName: SongLevel1
     clip: {fileID: 8300000, guid: c43a89052d8f2754caa8509386fcd4fb, type: 3}
+  - soundName: SongGameOver
+    clip: {fileID: 8300000, guid: b451007b54ce50f4eb08e60f77904e6f, type: 3}
   musics: []
 --- !u!1 &738007146
 GameObject:
