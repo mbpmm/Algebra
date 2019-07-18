@@ -6,26 +6,44 @@ using UnityEngine.SceneManagement;
 public class UIGoToScene : MonoBehaviour
 {
     public string sceneName;
+    private string levelSceneName;
     private GameObject gameManager;
 
     private void Start()
     {
         gameManager = GameObject.Find("GameManager");
+
+        if (SceneManager.GetActiveScene().name == "GameOver" && sceneName == "0")
+        {
+            levelSceneName = gameManager.GetComponent<GameManager>().levelName;
+        }
+
+        if(SceneManager.GetActiveScene().name == "Level Selection")
+        {
+            DestroyManager();
+        }
     }
 
     public void GoToScene()
     {
-        if(SceneManager.GetActiveScene().name == "GameOver" && sceneName == "0")
+        ActiveSong.Get().CheckNextScene(sceneName);
+
+        if(SceneManager.GetActiveScene().name == "Level1" || SceneManager.GetActiveScene().name == "Level2")
         {
-            SceneManager.LoadScene(gameManager.GetComponent<GameManager>().levelName);
+            AudioManager.Get().audioSource.Stop();
+        }
+
+        if (SceneManager.GetActiveScene().name == "GameOver" && sceneName == "0")
+        {
+            SceneManager.LoadScene(levelSceneName);
         }
         else
         {
             Time.timeScale = 1;
             SceneManager.LoadScene(sceneName);
         }
-        
-        Destroy(gameManager);
+
+        Invoke("DestroyManager", 0.1f);
     }
 
     public void QuitGame()
@@ -35,5 +53,10 @@ public class UIGoToScene : MonoBehaviour
         #else
                 Application.Quit();
         #endif
+    }
+
+    private void DestroyManager()
+    {
+        Destroy(gameManager);
     }
 }

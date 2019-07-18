@@ -4,14 +4,15 @@ using System.Collections.Generic;
 
 public class AudioManager : MonoBehaviour
 {
-    private AudioSource audioSource;
+    public AudioSource audioSource;
     private static AudioManager instance;
     [Header("Sound Options")]
     public bool soundOn = true;
     public bool musicOn = true;
     public Dictionary<string, AudioClip> audios=new Dictionary<string, AudioClip>();
+    public Dictionary<string, AudioClip> songs = new Dictionary<string, AudioClip>();
     public SoundZ[] sfxs;
-    public AudioClip[] musics;
+    public SoundZ[] musics;
 
     [System.Serializable]
     public class SoundZ
@@ -26,21 +27,13 @@ public class AudioManager : MonoBehaviour
         Etc
     }
 
-    public enum MusicType
-    {
-        Ingame,
-        MainMenu,
-    }
-
-    
-
     public static AudioManager Get()
     {
         return instance;
     }
 
     // Use this for initialization
-    private void Awake()
+    private void Start()
     {
         if (instance)
         {
@@ -49,6 +42,8 @@ public class AudioManager : MonoBehaviour
         }
         DontDestroyOnLoad(gameObject);
         instance = this;
+
+        PlayerProfile.Get().CheckPlayerPrefs();
         soundOn = PlayerProfile.Get().GetSoundOn();
         musicOn = PlayerProfile.Get().GetMusicOn();
         audioSource = GetComponent<AudioSource>();
@@ -56,6 +51,11 @@ public class AudioManager : MonoBehaviour
         foreach (SoundZ ac in sfxs)
         {
             audios.Add(ac.soundName, ac.clip);
+        }
+
+        foreach (SoundZ ac in musics)
+        {
+            songs.Add(ac.soundName, ac.clip);
         }
     }
 
@@ -65,22 +65,13 @@ public class AudioManager : MonoBehaviour
             return;
         if (audios.ContainsKey(st)) //usando diccionarios 
         {
-            AudioSource.PlayClipAtPoint(audios[st], Vector3.zero);
-        }
-
-        for (int i = 0; i < sfxs.Length; i++) // sin usar diccionarios
-        {
-            if (sfxs[i].soundName == st)
-            {
-                AudioSource.PlayClipAtPoint(sfxs[i].clip, Vector3.zero);
-            }
-
+            AudioSource.PlayClipAtPoint(audios[st], new Vector3(14.24f, 4.82f, 0), 1.0f);
         }
     }
 
-    public void PlayMusic(MusicType mt)
+    public void PlayMusic(string st)
     {
-        audioSource.clip = musics[(int)mt];
+        audioSource.clip = songs[st];
         if (!musicOn)
             return;
 

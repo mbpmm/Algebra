@@ -16,6 +16,7 @@ public class GameManager : MonoBehaviourSingleton<GameManager>
     private WallsRemaining walls;
     private Points points;
     private Steps steps;
+    private UIGoToScene sceneSwitch;
     private bool gameOver;
     private bool inGameOverScene;
     private bool switchOnce;
@@ -27,18 +28,12 @@ public class GameManager : MonoBehaviourSingleton<GameManager>
         points = player.GetComponent<Points>();
         steps = player.GetComponent<Steps>();
         walls = wallMgr.GetComponent<WallsRemaining>();
+        sceneSwitch = GetComponent<UIGoToScene>();
     }
 
     private void Start()
     {
-        if (SceneManager.GetActiveScene().name == "Level1")
-        {
-            AudioManager.Get().PlaySound("SongLevel1");
-        }
-        if (SceneManager.GetActiveScene().name == "Level2")
-        {
-            AudioManager.Get().PlaySound("SongLevel2");
-        }
+        checkCurrentLevel(SceneManager.GetActiveScene().name);
     }
     // Update is called once per frame
     void Update()
@@ -93,6 +88,19 @@ public class GameManager : MonoBehaviourSingleton<GameManager>
     public void GoToGameOver()
     {
         gameOver = false;
-        SceneManager.LoadScene("GameOver");
+        sceneSwitch.sceneName = "GameOver";
+        sceneSwitch.GoToScene();
+    }
+
+    public void checkCurrentLevel(string sceneName)
+    {
+        if (SceneManager.GetActiveScene().name == "Level1")
+        {
+            AudioManager.Get().PlayMusic("SongLevel1");
+        }
+        if (SceneManager.GetActiveScene().name == "Level2")
+        {
+            AudioManager.Get().PlayMusic("SongLevel2");
+        }
     }
 }

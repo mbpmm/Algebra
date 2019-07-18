@@ -36,4 +36,17 @@ public class PlayerProfile : MonoBehaviour
             return PlayerPrefs.GetInt("MusicOn") == 1;
         return true;
     }
+
+    public void CheckPlayerPrefs()
+    {
+        if (!PlayerPrefs.HasKey("SoundOn"))
+        {
+            PlayerPrefs.SetInt("SoundOn", 1);
+        }
+        
+        if (!PlayerPrefs.HasKey("MusicOn"))
+        {
+            PlayerPrefs.SetInt("MusicOn", 1);
+        }
+    }
 }
