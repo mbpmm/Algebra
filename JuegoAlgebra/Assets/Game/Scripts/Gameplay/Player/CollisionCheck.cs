@@ -22,9 +22,12 @@ public class CollisionCheck : MonoBehaviour
         switch (wall.gameObject.tag)
         {
             case "wall":
-                Debug.Log("Colisiona con pared.");
-                materialCubo.material.color = Color.red;
-                playerPoints.substractPoints(50);
+                if (materialCubo.material.color != Color.red)
+                {
+                    Debug.Log("Colisiona con pared.");
+                    materialCubo.material.color = Color.red;
+                    playerPoints.substractPoints(50);
+                } 
                 break;
             case "wallTrigger":
                 walls.substractWall();
@@ -62,8 +65,11 @@ public class CollisionCheck : MonoBehaviour
                     Debug.Log("Player Rotation: " + playerRot);
 
 
-
                     if (playerRot == auxRot || playerRot == perfectRotOpposite && wall.gameObject.GetComponentInParent<PerfectMatch>().hasOpposite)
+                    {
+                        playerPoints.addPoints(100);
+                    }
+                    else if(wall.gameObject.GetComponentInParent<PerfectMatch>().alwaysPerfect)
                     {
                         playerPoints.addPoints(100);
                     }

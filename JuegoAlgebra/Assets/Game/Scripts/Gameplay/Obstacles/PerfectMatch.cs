@@ -9,4 +9,5 @@ public class PerfectMatch : MonoBehaviour
     public bool hasY;
     public bool hasZ;
     public bool hasOpposite;
+    public bool alwaysPerfect;
 }
