@@ -68,6 +68,7 @@ public class CollisionCheck : MonoBehaviour
                     if (playerRot == auxRot || playerRot == perfectRotOpposite && wall.gameObject.GetComponentInParent<PerfectMatch>().hasOpposite)
                     {
                         playerPoints.addPoints(100);
+                        AudioManager.Get().PlaySound("PerfectMatch");
                     }
                     else if(wall.gameObject.GetComponentInParent<PerfectMatch>().alwaysPerfect)
                     {

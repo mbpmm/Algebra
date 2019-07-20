@@ -1248,6 +1248,8 @@ MonoBehaviour:
   sfxs:
   - soundName: Button
     clip: {fileID: 8300000, guid: cf608e4770f6004458be3ea19f89905e, type: 3}
+  - soundName: PerfectMatch
+    clip: {fileID: 8300000, guid: 6f04d57651c976f43934c2844f9e3b02, type: 3}
   musics:
   - soundName: SongLevel1
     clip: {fileID: 8300000, guid: c43a89052d8f2754caa8509386fcd4fb, type: 3}
