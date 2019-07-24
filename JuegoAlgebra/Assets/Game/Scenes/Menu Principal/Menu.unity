@@ -179,7 +179,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 1
-  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
+  m_BackGroundColor: {r: 0.7735849, g: 0, b: 0.0151684685, a: 0}
   m_projectionMatrixMode: 1
   m_SensorSize: {x: 36, y: 24}
   m_LensShift: {x: 0, y: 0}
@@ -1250,6 +1250,10 @@ MonoBehaviour:
     clip: {fileID: 8300000, guid: cf608e4770f6004458be3ea19f89905e, type: 3}
   - soundName: PerfectMatch
     clip: {fileID: 8300000, guid: 6f04d57651c976f43934c2844f9e3b02, type: 3}
+  - soundName: WrongMatch
+    clip: {fileID: 8300000, guid: c8c72ec885841c645a5573337e973dc2, type: 3}
+  - soundName: GoodMatch
+    clip: {fileID: 8300000, guid: b38d01b1ad26bf84ea4b594e9211d660, type: 3}
   musics:
   - soundName: SongLevel1
     clip: {fileID: 8300000, guid: c43a89052d8f2754caa8509386fcd4fb, type: 3}

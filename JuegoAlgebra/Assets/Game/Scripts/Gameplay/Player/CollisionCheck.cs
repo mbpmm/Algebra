@@ -6,7 +6,9 @@ public class CollisionCheck : MonoBehaviour
 {
     public GameObject wallManager;
     public Transform transformPlayer;
+    public GameObject animatedText;
 
+    private Color colorFailed = new Color(0.77f, 0.0f, 0.01f);
     private MeshRenderer materialCubo;
     private WallsRemaining walls;
     private Points playerPoints;
@@ -27,6 +29,8 @@ public class CollisionCheck : MonoBehaviour
                     Debug.Log("Colisiona con pared.");
                     materialCubo.material.color = Color.red;
                     playerPoints.substractPoints(50);
+                    AudioManager.Get().PlaySound("WrongMatch");
+                    ShowAnimatedTextFailed();
                 } 
                 break;
             case "wallTrigger":
@@ -35,7 +39,7 @@ public class CollisionCheck : MonoBehaviour
                 if(materialCubo.material.color != Color.red)
                 {
                     playerPoints.addPoints(100);
-
+                    AudioManager.Get().PlaySound("GoodMatch");
                     Vector3 auxRot = wall.gameObject.GetComponentInParent<PerfectMatch>().rot;
                     Vector3 playerRot = transformPlayer.localRotation.eulerAngles;
                     Vector3 perfectRotOpposite = new Vector3(0,0,0);
@@ -69,6 +73,7 @@ public class CollisionCheck : MonoBehaviour
                     {
                         playerPoints.addPoints(100);
                         AudioManager.Get().PlaySound("PerfectMatch");
+                        ShowAnimatedTextPerfect();
                     }
                     else if(wall.gameObject.GetComponentInParent<PerfectMatch>().alwaysPerfect)
                     {
@@ -104,5 +109,18 @@ public class CollisionCheck : MonoBehaviour
         {
             rot2 = 360 - rot1;
         }
+    }
+
+    private void ShowAnimatedTextPerfect()
+    {
+        GameObject go = Instantiate(animatedText);
+        go.GetComponent<TextMesh>().text = "Perfect Match!";
+    }
+
+    private void ShowAnimatedTextFailed()
+    {
+        GameObject go = Instantiate(animatedText);
+        go.GetComponent<TextMesh>().text = "Failed Match";
+        go.GetComponent<TextMesh>().color = colorFailed;
     }
 }
