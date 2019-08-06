@@ -10483,7 +10483,7 @@ Transform:
 --- !u!199 &878659996
 ParticleSystemRenderer:
   serializedVersion: 6
-  m_ObjectHideFlags: 2
+  m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
@@ -20866,8 +20866,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 640811819}
   wallMgr: {fileID: 2019274348}
-  maxPoints: 1100
-  stepPoints: 25
+  maxPoints: 1010
+  stepPoints: 30
   grade: 0
   pointsTotal: 0
   levelName: 
