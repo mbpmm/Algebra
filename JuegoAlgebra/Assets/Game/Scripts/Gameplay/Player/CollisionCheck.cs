@@ -78,6 +78,8 @@ public class CollisionCheck : MonoBehaviour
                     else if(wall.gameObject.GetComponentInParent<PerfectMatch>().alwaysPerfect)
                     {
                         playerPoints.addPoints(100);
+                        AudioManager.Get().PlaySound("PerfectMatch");
+                        ShowAnimatedTextPerfect();
                     }
                 }
                 break;
