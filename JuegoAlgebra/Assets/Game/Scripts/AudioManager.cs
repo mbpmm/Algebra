@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections.Generic;
+using UnityEngine.SceneManagement;
 
 
 public class AudioManager : MonoBehaviour
@@ -85,19 +86,31 @@ public class AudioManager : MonoBehaviour
         if (soundOn)
             PlaySound(SoundType.CommonButton.ToString());
 
-        PlayerProfile.Get().SaveSoundOptions(this);
+        //PlayerProfile.Get().SaveSoundOptions(this);
     }
 
     public void ToggleMusic()
     {
+        ToggleSound();
         musicOn = !musicOn;
 
         if (musicOn)
-            audioSource.Play();
+        {
+            if (SceneManager.GetActiveScene().name != "Menu")
+            {
+                audioSource.Play();
+            }
+            
+            audioSource.volume = 0.4f;
+        }
         else
+        {
             audioSource.Stop();
+            audioSource.volume = 0;
 
-        PlayerProfile.Get().SaveSoundOptions(this);
+        }
+
+        //PlayerProfile.Get().SaveSoundOptions(this);
     }
 }
 

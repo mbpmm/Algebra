@@ -28,7 +28,7 @@ public class UIGoToScene : MonoBehaviour
     {
         ActiveSong.Get().CheckNextScene(sceneName);
 
-        if(SceneManager.GetActiveScene().name == "Level1" || SceneManager.GetActiveScene().name == "Level2")
+        if(SceneManager.GetActiveScene().name == "Level1" || SceneManager.GetActiveScene().name == "Level2"|| SceneManager.GetActiveScene().name == "GameOver" || SceneManager.GetActiveScene().name == "Menu")
         {
             AudioManager.Get().audioSource.Stop();
         }

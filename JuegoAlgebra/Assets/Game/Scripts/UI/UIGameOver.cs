@@ -9,13 +9,11 @@ public class UIGameOver : MonoBehaviour
     public Text grade;
     private GameObject gameManager;
     private GameManager manager;
-
     // Start is called before the first frame update
     void Start()
     {
         gameManager = GameObject.Find("GameManager");
         manager = gameManager.GetComponent<GameManager>();
-
     }
 
     // Update is called once per frame

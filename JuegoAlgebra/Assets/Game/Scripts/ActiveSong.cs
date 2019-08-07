@@ -8,10 +8,11 @@ public class ActiveSong : MonoBehaviourSingleton<ActiveSong>
     public bool isSongActive;
     public AudioSource audioSource;
     public string[] activeSongScenes;
-
+    public bool musicOn;
     // Start is called before the first frame update
     void Start()
     {
+        musicOn = true;
         audioSource = GetComponent<AudioSource>();
         SetMenuSong();
         CheckNextScene(SceneManager.GetActiveScene().name);
@@ -47,5 +48,16 @@ public class ActiveSong : MonoBehaviourSingleton<ActiveSong>
     public void SetMenuSong()
     {
         audioSource.clip = AudioManager.Get().songs["SongMenu"];
+    }
+
+    public void ToggleMusic()
+    {
+        musicOn = !musicOn;
+
+        if (musicOn)
+            audioSource.volume = 0.4f;
+        else
+            audioSource.volume = 0;
+
     }
 }
